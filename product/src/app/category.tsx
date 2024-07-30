@@ -1,13 +1,26 @@
-export default function Category () {
+"use client"
+type defineCate = {
+    reciveCate: string[]
+}
+
+
+export default function Category({ reciveCate }: defineCate) {
+
+    const selectCate = (cateName: string) => {
+        console.log(cateName)
+    }
+
     return (
         <>
-        <div style={{width: "90%", }} className="text-center m-1">
-            <button style={{border: "2px solid blue", padding: "4px 18px"}} className="mr-2">Cars</button>
-            <button style={{border: "2px solid blue", padding: "4px 18px"}} className="mr-2">Mobile Phones</button>
-            <button style={{border: "2px solid blue", padding: "4px 18px"}} className="mr-2">Laptops</button>
-            <button style={{border: "2px solid blue", padding: "4px 18px"}} className="mr-2">Acceseries</button>
-            <button style={{border: "2px solid blue", padding: "4px 18px"}} className="mr-2">Clothes</button>
-        </div>
+            <div style={{ width: "90%", }} className="text-center m-1">
+                {
+                
+                    reciveCate.map((curr, i)=> (
+                        <button style={{ border: "2px solid blue", padding: "4px 18px" }} className="mr-2" onClick={ ()=>{selectCate(curr)} }>{curr}</button>
+                    ))
+
+                }
+            </div>
         </>
     )
 }
